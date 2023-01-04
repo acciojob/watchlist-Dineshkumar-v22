@@ -68,7 +68,7 @@ public class MovieRepository {
                addDirector.remove(director);
 
        }
-       public void deleteAllDb()
+      /* public void deleteAllDb()
        {
            List<String> dele = new ArrayList<>();
            dele = addmovie
@@ -78,7 +78,7 @@ public class MovieRepository {
               if(!del.isEmpty())
               del.remove();
           }
-       }
+       }*/
    }
 
 }
