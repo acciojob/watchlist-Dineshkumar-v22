@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("movies")
@@ -20,5 +18,32 @@ public class MovieController {
         movieService.addMovie(movie);
         return new ResponseEntity<>("movies added successfully", HttpStatus.CREATED);
     }
+
+    @PostMapping("/add-director")
+    public ResponseEntity<String> addDirector(@RequesBody() Director director)
+    {
+        movieService.addDirector(director);
+        return new ResponseEntity<>("director was added successfull",HttpStatus.CREATED);
+    }
+    @PutMapping("/add-movie-director-pair")
+            public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie") String movie, @RequestParam("director") String director)
+    {
+        movieService.addMovieDirectorPair(movie,director);
+        return new ResponseEntity<>("movie director paired",HttpStatus.OK);
+    }
+    @GetMapping("/get-movie-by-name/{name}")
+public ResponseEntity<Movie>  getMovieByName(@PathVariable String Name)
+    {
+        Movie movie =movieService.getMovieByName(Name);
+        return new ResponseEntity<>(movie,HttpStatus.OK);
+    }
+    public ResponseEntity<Director>  getDirectorByName(@PathVariable String Director)
+    {
+        movieService.getDirectorByName(Director);
+        return new ResponseEntity<>(Director,HttpStatus.OK);
+    }
+
+
 }
+
 
