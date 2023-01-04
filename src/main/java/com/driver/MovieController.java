@@ -37,10 +37,10 @@ public ResponseEntity<Movie>  getMovieByName(@PathVariable String Name)
         Movie movie =movieService.getMovieByName(Name);
         return new ResponseEntity<>(movie,HttpStatus.OK);
     }
-    public ResponseEntity<Director>  getDirectorByName(@PathVariable String Director)
+    public ResponseEntity<Director>  getDirectorByName(@PathVariable String directorname)
     {
-        movieService.getDirectorByName(Director);
-        return new ResponseEntity<>(Director,HttpStatus.OK);
+        Director director = movieService.getDirectorByName(directorname);
+        return new ResponseEntity<>(director,HttpStatus.OK);
     }
 
 
