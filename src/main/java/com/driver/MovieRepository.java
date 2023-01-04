@@ -5,9 +5,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MovieRepository {
-    HashMap<String,Movie> addmovie;
-    HashMap<String,Director> addDirector;
-    HashMap<String,List<String>> mdpair;
+    private HashMap<String,Movie> addmovie;
+    private HashMap<String,Director> addDirector;
+    private  HashMap<String,List<String>> mdpair;
 
     public MovieRepository() {
         this.addmovie = new HashMap<String,Movie>();
@@ -16,23 +16,22 @@ public class MovieRepository {
     }
    public void savemovie(Movie movie)
    {
-       addmovie.put(movie. getMovieName(),movie);
+       addmovie.put(movie.getMovieName(),movie);
    }
    public void savedirector(Director director)
    {
        addDirector.put(director.getMovieByName(),director);
    }
-   public Object mdspair(String movie, String director) {
-       if(addmovie.containsKey(movie) && addDirector.containsKey(director))
-       {
+   public void mdspair(String movie, String director) {
+       if (addmovie.containsKey(movie) && addDirector.containsKey(director)) {
            List<String> p = new ArrayList<>();
-           if(mdpair.containsKey(director))
-           {
+           if (mdpair.containsKey(director)) {
                p = mdpair.get(director);
            }
            p.add(movie);
-           mdpair.put(director,p);
+           mdpair.put(director, p);
        }
+   }
 
        public Movie findMovie(String movie){
            return addmovie.get(movie);
@@ -41,7 +40,45 @@ public class MovieRepository {
        {
            return addDirector.get(director);
        }
-       public String
+       public List<String> moviesByDirector(String director)
+       {
+           List<String> moviesfromDirector = new ArrayList<>();
+           if(mdpair.containsKey(director))
+               moviesfromDirector = mdpair.get(director);
+               return moviesfromDirector;
+       }
+       public List<String> allMovies()
+       {
+           return new ArrayList<>(addmovie.keySet());
+       }
+       public void deleteByDirector(String director)
+       {
+           List<String> deletion = new ArrayList<>();
+           if(mdpair.containsKey(director))
+             deletion =  mdpair.get(director);
+           for(String dir:deletion)
+           {
+               mdpair.containsKey(deletion);
+               {
+                   addmovie.remove(deletion);
+               }
+           }
+          mdpair.remove(director);
+           if(addDirector.containsKey(director))
+               addDirector.remove(director);
+
+       }
+       public void deleteAllDb()
+       {
+           List<String> dele = new ArrayList<>();
+           dele = addmovie
+
+          for(del Del:addmovie)
+          {
+              if(!del.isEmpty())
+              del.remove();
+          }
+       }
    }
 
 }

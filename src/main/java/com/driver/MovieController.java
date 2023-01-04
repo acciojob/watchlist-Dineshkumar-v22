@@ -1,6 +1,7 @@
 package com.driver;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
     @Autowired
     MovieService movieService;
-@PostMapping
-    public ResponseEntity<Movie> addMovie(RequestBody() "/addMovie")
+@PostMapping( "/add-movie")
+    public ResponseEntity<String> addMovie(@RequestBody() Movie movie)
     {
-        movieService.addMovie()
+        movieService.addMovie(movie);
+        return new ResponseEntity<>("movies added successfully", HttpStatus.CREATED);
     }
 }
 
