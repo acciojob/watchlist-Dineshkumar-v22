@@ -40,7 +40,7 @@ public class MovieRepository {
        {
            return addDirector.get(director);
        }
-       public List<String> moviesByDirector(String director)
+     /*  public List<String> moviesByDirector(String director)
        {
            List<String> moviesfromDirector = new ArrayList<>();
            if(mdpair.containsKey(director))
