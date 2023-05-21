@@ -5,41 +5,36 @@ public class Movie {
     private int durationInMinutes;
     private double imdbRating;
 
+    public Movie() {
+    }
 
-    public Movie()
-    {
+    public Movie(String name, int durationInMinutes, double imdbRating) {
+        this.name = name;
+        this.durationInMinutes = durationInMinutes;
+        this.imdbRating = imdbRating;
+    }
 
-    }
-    public Movie(String name, int durationInMinutes,double imdbRating)
-    {
-        this.name=name;
-        this.durationInMinutes=durationInMinutes;
-        this.imdbRating=imdbRating;
-    }
-    public void setMovieName()
-    {
-        this.name=name;
-    }
-    public String getMovieName()
-    {
+    public String getName() {
         return name;
     }
-    public void setdurationInMinutes()
-    {
-        this.durationInMinutes=durationInMinutes;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getdurationInMinutes()
-    {
+    public int getDurationInMinutes() {
         return durationInMinutes;
     }
-    public void setimdbRating()
-    {
-        this.imdbRating=imdbRating;
+
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
     }
-    public double getimdbRating()
-    {
+
+    public double getImdbRating() {
         return imdbRating;
     }
 
+    public void setImdbRating(double imdbRating) {
+        this.imdbRating = imdbRating;
+    }
 }
